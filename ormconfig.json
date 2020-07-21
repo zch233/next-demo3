@@ -17,6 +17,7 @@
     "dist/subscriber/**/*.js"
   ],
   "cli": {
+    "entitiesDir": "src/entity",
     "migrationsDir": "src/migration"
   }
 }
