@@ -4,16 +4,19 @@
   "port": 5432,
   "username": "blog",
   "password": "",
-  "database": "blog_development",
+  "database": "blog_development1",
   "synchronize": false,
   "logging": false,
   "entities": [
-    "src/entity/**/*.ts"
+    "dist/entity/**/*.js"
   ],
   "migrations": [
-    "src/migration/**/*.ts"
+    "dist/migration/**/*.js"
   ],
   "subscribers": [
-    "src/subscriber/**/*.ts"
-  ]
+    "dist/subscriber/**/*.js"
+  ],
+  "cli": {
+    "migrationsDir": "src/migration"
+  }
 }
