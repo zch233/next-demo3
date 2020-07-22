@@ -10,17 +10,39 @@ require("reflect-metadata");
 
 var _typeorm = require("typeorm");
 
+var _Post = require("./entity/Post");
+
 (0, _typeorm.createConnection)().then( /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(connection) {
+    var posts, p, newPosts;
     return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log(connection);
-            _context.next = 3;
+            _context.next = 2;
+            return connection.manager.find(_Post.Post);
+
+          case 2:
+            posts = _context.sent;
+            console.log(posts);
+            p = new _Post.Post();
+            p.title = 'title';
+            p.content = 'content';
+            p.authorId = 111;
+            _context.next = 10;
+            return connection.manager.save(p);
+
+          case 10:
+            _context.next = 12;
+            return connection.manager.find(_Post.Post);
+
+          case 12:
+            newPosts = _context.sent;
+            console.log(newPosts);
+            _context.next = 16;
             return connection.close();
 
-          case 3:
+          case 16:
           case "end":
             return _context.stop();
         }
